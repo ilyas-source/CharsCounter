@@ -1,19 +1,20 @@
-package ua.com.foxminded.uniquecharacter;
+package ua.com.foxminded.uniquecharacterscount;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.sound.midi.Soundbank;
 
 public class CharCounter {
 
 	private static Map<String, Integer> resultMap = new HashMap<>();
 
 	public int getCharCount(String source) {
-		String md5Hash = MD5.getMd5(source);
-		if (resultMap.containsKey(md5Hash)) {
-			return resultMap.get(md5Hash);
+		if (resultMap.containsKey(source)) {
+			return resultMap.get(source);
 		}
 		int count = countUnique(source);
-		resultMap.put(md5Hash, count);
+		resultMap.put(source, count);
 		return count;
 	}
 

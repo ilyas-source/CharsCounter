@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ua.com.foxminded</groupId>
-  <artifactId>unique-character</artifactId>
+  <artifactId>uniquescharacterscount</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>unique-character</name>
@@ -24,12 +24,6 @@
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-engine</artifactId>
         <version>${junit.jupiter.version}</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.junit.platform</groupId>
-        <artifactId>junit-platform-runner</artifactId>
-        <version>${junit.platform.version}</version>
         <scope>test</scope>
     </dependency>
   </dependencies>

@@ -1,8 +1,10 @@
-package ua.com.foxminded.uniquecharacter;
+package ua.com.foxminded.uniquecharacterscount;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import ua.com.foxminded.uniquecharacterscount.CharCounter;
 
 class CharCounterTest {
 
