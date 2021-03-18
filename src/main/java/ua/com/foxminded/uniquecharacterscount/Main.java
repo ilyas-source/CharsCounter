@@ -10,9 +10,9 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 
 		while (keepOn) {
-			System.out.println("Enter string, or q to quit: ");
+			System.out.println("Enter string, or Enter to quit: ");
 			String string = scanner.nextLine();
-			if (!string.equals("q")) {
+			if (string.length() > 0) {
 				System.out.println("Unique characters count: " + charCounter.getCharCount(string));
 			} else {
 				keepOn = false;

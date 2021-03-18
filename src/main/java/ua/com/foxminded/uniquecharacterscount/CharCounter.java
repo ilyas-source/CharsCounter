@@ -7,18 +7,19 @@ import javax.sound.midi.Soundbank;
 
 public class CharCounter {
 
-	private static Map<String, Integer> resultMap = new HashMap<>();
+	private static Map<String, Map<Character, Long>> resultMap = new HashMap<>();
 
-	public int getCharCount(String source) {
+	public Map<Character, Long> getCharCount(String source) {
 		if (resultMap.containsKey(source)) {
+			System.out.println("Have in cache: ");
 			return resultMap.get(source);
 		}
-		int count = countUnique(source);
+		Map<Character, Long> count = countUnique(source);
 		resultMap.put(source, count);
 		return count;
 	}
 
-	private int countUnique(String input) {
+	private Map<Character, Long> countUnique(String input) {
 		Character[] chars = new Character[input.length()];
 		for (int i = 0; i < input.length(); i++) {
 			chars[i] = input.charAt(i);
@@ -30,10 +31,10 @@ public class CharCounter {
 			if (calculations.containsKey(c)) {
 				calculations.put(c, calculations.get(c) + 1);
 			} else {
-				calculations.put(c, (long) 0);
+				calculations.put(c, (long) 1);
 			}
 		}
 
-		return calculations.size();
+		return calculations;
 	}
 }
