@@ -1,4 +1,4 @@
-package ua.com.foxminded.uniquecharacterscount;
+package ua.com.foxminded.charscounter;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
+
+import ua.com.foxminded.charscounter.CharCounter;
 
 class CharCounterTest {
 
@@ -23,8 +25,17 @@ class CharCounterTest {
 		expected.put('y', (long) 1);
 
 		Map<Character, Long> actual = charCounter.getCharCount("Qwertty");
-		System.out.println(actual);
-		System.out.println(expected);
+
+		assertEquals(actual, expected);
+	}
+
+	@Test
+	void givenM_onGetCharCount_thenGetHashMap() {
+
+		Map<Character, Long> expected = new HashMap<>();
+		expected.put('M', (long) 1);
+
+		Map<Character, Long> actual = charCounter.getCharCount("M");
 
 		assertEquals(actual, expected);
 	}

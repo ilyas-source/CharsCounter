@@ -1,4 +1,4 @@
-package ua.com.foxminded.uniquecharacterscount;
+package ua.com.foxminded.charscounter;
 
 import java.util.Scanner;
 

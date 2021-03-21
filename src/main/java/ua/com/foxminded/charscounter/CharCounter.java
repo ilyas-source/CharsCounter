@@ -1,9 +1,7 @@
-package ua.com.foxminded.uniquecharacterscount;
+package ua.com.foxminded.charscounter;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.sound.midi.Soundbank;
 
 public class CharCounter {
 
@@ -11,7 +9,6 @@ public class CharCounter {
 
 	public Map<Character, Long> getCharCount(String source) {
 		if (resultMap.containsKey(source)) {
-			System.out.println("Have in cache: ");
 			return resultMap.get(source);
 		}
 		Map<Character, Long> count = countUnique(source);
