@@ -7,7 +7,6 @@ public class Main {
 	public static void main(String[] args) {
 		CharCount simpleCharCount = new CharCountImplement();
 		CharCount cachingCharCount = new CachedDecorator(simpleCharCount);
-
 		boolean keepOn = true;
 		Scanner scanner = new Scanner(System.in);
 

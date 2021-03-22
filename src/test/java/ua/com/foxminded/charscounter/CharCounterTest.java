@@ -29,7 +29,7 @@ class CharCounterTest {
 	}
 
 	@Test
-	void givenM_onGetCharCount_thenGetHashMap() {
+	void givenMMMMMMM_onGetCharCount_thenGetHashMap() {
 
 		Map<String, Long> expected = new HashMap<>();
 		expected.put("M", (long) 1);
