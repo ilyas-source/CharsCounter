@@ -11,6 +11,7 @@ public class CachedDecorator extends Decorator {
 		this.charCount = charCount;
 	}
 
+	@Override
 	public Map<String, Long> charCount(String input) {
 		Map<String, Long> cached = cache.get(input);
 		if (cached != null) {
