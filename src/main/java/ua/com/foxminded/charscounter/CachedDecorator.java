@@ -3,7 +3,7 @@ package ua.com.foxminded.charscounter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CachedDecorator extends Decorator {
+public class CachedDecorator extends CharCountDecorator {
 
 	private Map<String, Map<String, Long>> cache = new HashMap<>();
 
@@ -12,15 +12,9 @@ public class CachedDecorator extends Decorator {
 	}
 
 	@Override
-	public Map<String, Long> charCount(String input) {
-		Map<String, Long> cached = cache.get(input);
-		if (cached != null) {
-			return cached;
-		}
+	public Map<String, Long> charCounter(String input) {
+		cache.putIfAbsent(input, super.charCounter(input));
 
-		Map<String, Long> calculated = super.charCount(input);
-		cache.put(input, calculated);
-
-		return calculated;
+		return cache.get(input);
 	}
 }

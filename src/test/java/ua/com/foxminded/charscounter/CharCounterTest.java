@@ -13,38 +13,38 @@ class CharCounterTest {
 
 	@Test
 	void givenQwertty_onGetCharCount_thenGetHashMap() {
-		expected.put("Q", (long) 1);
-		expected.put("w", (long) 1);
-		expected.put("e", (long) 1);
-		expected.put("r", (long) 1);
-		expected.put("t", (long) 2);
-		expected.put("y", (long) 1);
+		expected.put("Q", 1L);
+		expected.put("w", 1L);
+		expected.put("e", 1L);
+		expected.put("r", 1L);
+		expected.put("t", 2L);
+		expected.put("y", 1L);
 
-		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharacterCounter());
+		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharCounter());
 
-		Map<String, Long> actual = cachingCharCount.charCount("Qwertty");
+		Map<String, Long> actual = cachingCharCount.charCounter("Qwertty");
 
 		assertEquals(actual, expected);
 	}
 
 	@Test
 	void givenMMMMMMM_onGetCharCount_thenGetHashMap() {
-		expected.put("M", (long) 1);
+		expected.put("M", 1L);
 
-		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharacterCounter());
+		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharCounter());
 
-		Map<String, Long> actual = cachingCharCount.charCount("M");
+		Map<String, Long> actual = cachingCharCount.charCounter("M");
 
 		assertEquals(actual, expected);
 	}
 
 	@Test
 	void givenSpaces_onGetCharCount_thenGetHashMap() {
-		expected.put(" ", (long) 5);
+		expected.put(" ", 5L);
 
-		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharacterCounter());
+		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharCounter());
 
-		Map<String, Long> actual = cachingCharCount.charCount("     ");
+		Map<String, Long> actual = cachingCharCount.charCounter("     ");
 
 		assertEquals(actual, expected);
 	}
