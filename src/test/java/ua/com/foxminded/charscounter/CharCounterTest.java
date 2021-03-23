@@ -9,10 +9,10 @@ import org.junit.jupiter.api.Test;
 
 class CharCounterTest {
 
+	Map<String, Long> expected = new HashMap<>();
+
 	@Test
 	void givenQwertty_onGetCharCount_thenGetHashMap() {
-
-		Map<String, Long> expected = new HashMap<>();
 		expected.put("Q", (long) 1);
 		expected.put("w", (long) 1);
 		expected.put("e", (long) 1);
@@ -20,8 +20,7 @@ class CharCounterTest {
 		expected.put("t", (long) 2);
 		expected.put("y", (long) 1);
 
-		CharCount simpleCharCount = new CharCountImplement();
-		CharCount cachingCharCount = new CachedDecorator(simpleCharCount);
+		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharacterCounter());
 
 		Map<String, Long> actual = cachingCharCount.charCount("Qwertty");
 
@@ -30,12 +29,9 @@ class CharCounterTest {
 
 	@Test
 	void givenMMMMMMM_onGetCharCount_thenGetHashMap() {
-
-		Map<String, Long> expected = new HashMap<>();
 		expected.put("M", (long) 1);
 
-		CharCount simpleCharCount = new CharCountImplement();
-		CharCount cachingCharCount = new CachedDecorator(simpleCharCount);
+		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharacterCounter());
 
 		Map<String, Long> actual = cachingCharCount.charCount("M");
 
@@ -44,12 +40,9 @@ class CharCounterTest {
 
 	@Test
 	void givenSpaces_onGetCharCount_thenGetHashMap() {
-
-		Map<String, Long> expected = new HashMap<>();
 		expected.put(" ", (long) 5);
 
-		CharCount simpleCharCount = new CharCountImplement();
-		CharCount cachingCharCount = new CachedDecorator(simpleCharCount);
+		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharacterCounter());
 
 		Map<String, Long> actual = cachingCharCount.charCount("     ");
 

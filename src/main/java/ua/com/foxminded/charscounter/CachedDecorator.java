@@ -7,7 +7,7 @@ public class CachedDecorator extends Decorator {
 
 	private Map<String, Map<String, Long>> cache = new HashMap<>();
 
-	public CachedDecorator(CharCount charCount) {
+	public CachedDecorator(CharCounter charCount) {
 		this.charCount = charCount;
 	}
 

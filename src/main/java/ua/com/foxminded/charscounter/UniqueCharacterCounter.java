@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class CharCountImplement implements CharCount {
+public class UniqueCharacterCounter implements CharCounter {
 
 	public Map<String, Long> charCount(String input) {
 		return Arrays.stream(input.split(""))

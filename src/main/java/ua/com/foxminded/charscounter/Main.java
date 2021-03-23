@@ -5,8 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		CharCount simpleCharCount = new CharCountImplement();
-		CharCount cachingCharCount = new CachedDecorator(simpleCharCount);
+		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharacterCounter());
 		boolean keepOn = true;
 		Scanner scanner = new Scanner(System.in);
 
