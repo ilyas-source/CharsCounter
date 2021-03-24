@@ -9,10 +9,9 @@ import org.junit.jupiter.api.Test;
 
 class CharCounterTest {
 
-	Map<String, Long> expected = new HashMap<>();
-
 	@Test
 	void givenQwertty_onGetCharCount_thenGetHashMap() {
+		Map<String, Long> expected = new HashMap<>();
 		expected.put("Q", 1L);
 		expected.put("w", 1L);
 		expected.put("e", 1L);
@@ -20,7 +19,7 @@ class CharCounterTest {
 		expected.put("t", 2L);
 		expected.put("y", 1L);
 
-		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharCounter());
+		CharCounter cachingCharCount = new CachingCharCounter(new UniqueCharCounter());
 
 		Map<String, Long> actual = cachingCharCount.charCounter("Qwertty");
 
@@ -29,9 +28,10 @@ class CharCounterTest {
 
 	@Test
 	void givenMMMMMMM_onGetCharCount_thenGetHashMap() {
+		Map<String, Long> expected = new HashMap<>();
 		expected.put("M", 1L);
 
-		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharCounter());
+		CharCounter cachingCharCount = new CachingCharCounter(new UniqueCharCounter());
 
 		Map<String, Long> actual = cachingCharCount.charCounter("M");
 
@@ -40,9 +40,10 @@ class CharCounterTest {
 
 	@Test
 	void givenSpaces_onGetCharCount_thenGetHashMap() {
+		Map<String, Long> expected = new HashMap<>();
 		expected.put(" ", 5L);
 
-		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharCounter());
+		CharCounter cachingCharCount = new CachingCharCounter(new UniqueCharCounter());
 
 		Map<String, Long> actual = cachingCharCount.charCounter("     ");
 

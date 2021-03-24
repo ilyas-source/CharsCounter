@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		CharCounter cachingCharCount = new CachedDecorator(new UniqueCharCounter());
+		CharCounter charCounter = new CachingCharCounter(new UniqueCharCounter());
 		boolean keepOn = true;
 		Scanner scanner = new Scanner(System.in);
 
@@ -13,7 +13,7 @@ public class Main {
 			System.out.println("Enter string, or Enter to quit: ");
 			String string = scanner.nextLine();
 			if (string.length() > 0) {
-				System.out.println("Unique characters count: " + cachingCharCount.charCounter(string));
+				System.out.println("Unique characters count: " + charCounter.charCounter(string));
 			} else {
 				keepOn = false;
 			}
