@@ -1,11 +1,12 @@
 package ua.com.foxminded.charscounter;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
-		CharCounter charCounter = new CachingCharCounter(new UniqueCharCounter());
+		CharCounter charCounter = new CachedCharCounter(new UniqueCharCounter());
 		boolean keepOn = true;
 		Scanner scanner = new Scanner(System.in);
 
@@ -13,7 +14,9 @@ public class Main {
 			System.out.println("Enter string, or Enter to quit: ");
 			String string = scanner.nextLine();
 			if (string.length() > 0) {
-				System.out.println("Unique characters count: " + charCounter.charCounter(string));
+				for (Map.Entry<String, Long> entry : charCounter.charCounter(string).entrySet()) {
+					System.out.println("\"" + entry.getKey() + "\" - " + entry.getValue());
+				}
 			} else {
 				keepOn = false;
 			}

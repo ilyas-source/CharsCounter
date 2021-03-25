@@ -10,6 +10,5 @@ public class UniqueCharCounter implements CharCounter {
 	public Map<String, Long> charCounter(String input) {
 		return input.codePoints().mapToObj(c -> String.valueOf((char) c))
 				.collect(Collectors.groupingBy(Function.identity(), HashMap::new, Collectors.counting()));
-
 	}
 }

@@ -7,7 +7,9 @@ import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-class CharCounterTest {
+class UniqueCharCounterTest {
+
+	UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
 
 	@Test
 	void givenQwertty_onGetCharCount_thenGetHashMap() {
@@ -19,7 +21,7 @@ class CharCounterTest {
 		expected.put("t", 2L);
 		expected.put("y", 1L);
 
-		CharCounter cachingCharCount = new CachingCharCounter(new UniqueCharCounter());
+		CharCounter cachingCharCount = new CachedCharCounter(uniqueCharCounter);
 
 		Map<String, Long> actual = cachingCharCount.charCounter("Qwertty");
 
@@ -31,7 +33,7 @@ class CharCounterTest {
 		Map<String, Long> expected = new HashMap<>();
 		expected.put("M", 1L);
 
-		CharCounter cachingCharCount = new CachingCharCounter(new UniqueCharCounter());
+		CharCounter cachingCharCount = new CachedCharCounter(uniqueCharCounter);
 
 		Map<String, Long> actual = cachingCharCount.charCounter("M");
 
@@ -43,7 +45,7 @@ class CharCounterTest {
 		Map<String, Long> expected = new HashMap<>();
 		expected.put(" ", 5L);
 
-		CharCounter cachingCharCount = new CachingCharCounter(new UniqueCharCounter());
+		CharCounter cachingCharCount = new CachedCharCounter(uniqueCharCounter);
 
 		Map<String, Long> actual = cachingCharCount.charCounter("     ");
 
