@@ -7,7 +7,7 @@ public abstract class CharCounterDecorator implements CharCounter {
 	protected CharCounter charCounter;
 
 	@Override
-	public Map<String, Long> charCounter(String input) {
-		return charCounter.charCounter(input);
+	public Map<Character, Long> countChars(String input) {
+		return charCounter.countChars(input);
 	}
 }

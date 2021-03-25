@@ -14,7 +14,7 @@ public class Main {
 			System.out.println("Enter string, or Enter to quit: ");
 			String string = scanner.nextLine();
 			if (string.length() > 0) {
-				for (Map.Entry<String, Long> entry : charCounter.charCounter(string).entrySet()) {
+				for (Map.Entry<Character, Long> entry : charCounter.countChars(string).entrySet()) {
 					System.out.println("\"" + entry.getKey() + "\" - " + entry.getValue());
 				}
 			} else {

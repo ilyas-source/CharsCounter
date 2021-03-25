@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 public class UniqueCharCounter implements CharCounter {
 
-	public Map<String, Long> charCounter(String input) {
-		return input.codePoints().mapToObj(c -> String.valueOf((char) c))
+	public Map<Character, Long> countChars(String input) {
+		return input.chars().mapToObj(c -> (char) c)
 				.collect(Collectors.groupingBy(Function.identity(), HashMap::new, Collectors.counting()));
 	}
 }

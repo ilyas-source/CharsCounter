@@ -4,5 +4,5 @@ import java.util.Map;
 
 public interface CharCounter {
 
-	Map<String, Long> charCounter(String input);
+	Map<Character, Long> countChars(String input);
 }

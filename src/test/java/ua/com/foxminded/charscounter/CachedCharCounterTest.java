@@ -1,18 +1,18 @@
 package ua.com.foxminded.charscounter;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
 
-class UniqueCharCounterTest {
+public class CachedCharCounterTest {
 
-	UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
+	CachedCharCounter cachedCharCounter = new CachedCharCounter(new UniqueCharCounter());
 
 	@Test
-	void givenQwertty_onUniqueCharCount_thenGetHashMap() {
+	void givenQwertty_onCachedCharCount_thenGetHashMap() {
 		Map<Character, Long> expected = new HashMap<>();
 		expected.put('Q', 1L);
 		expected.put('w', 1L);
@@ -21,28 +21,29 @@ class UniqueCharCounterTest {
 		expected.put('t', 2L);
 		expected.put('y', 1L);
 
-		Map<Character, Long> actual = uniqueCharCounter.countChars("Qwertty");
+		Map<Character, Long> actual = cachedCharCounter.countChars("Qwertty");
 
 		assertEquals(actual, expected);
 	}
 
 	@Test
-	void givenMMMMMMM_onUniqueCharCount_thenGetHashMap() {
+	void givenMMMMMMM_onCachedCharCount_thenGetHashMap() {
 		Map<Character, Long> expected = new HashMap<>();
 		expected.put('M', 1L);
 
-		Map<Character, Long> actual = uniqueCharCounter.countChars("M");
+		Map<Character, Long> actual = cachedCharCounter.countChars("M");
 
 		assertEquals(actual, expected);
 	}
 
 	@Test
-	void givenSpaces_onUniqueCharCount_thenGetHashMap() {
+	void givenSpaces_onCachedCharCount_thenGetHashMap() {
 		Map<Character, Long> expected = new HashMap<>();
 		expected.put(' ', 5L);
 
-		Map<Character, Long> actual = uniqueCharCounter.countChars("     ");
+		Map<Character, Long> actual = cachedCharCounter.countChars("     ");
 
 		assertEquals(actual, expected);
 	}
+
 }
