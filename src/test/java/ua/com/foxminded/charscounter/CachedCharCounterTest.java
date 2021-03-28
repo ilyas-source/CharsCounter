@@ -23,7 +23,7 @@ public class CachedCharCounterTest {
 
 		Map<Character, Long> actual = cachedCharCounter.countChars("Qwertty");
 
-		assertEquals(actual, expected);
+		assertEquals(expected, actual);
 	}
 
 	@Test
@@ -33,7 +33,7 @@ public class CachedCharCounterTest {
 
 		Map<Character, Long> actual = cachedCharCounter.countChars("M");
 
-		assertEquals(actual, expected);
+		assertEquals(expected, actual);
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class CachedCharCounterTest {
 
 		Map<Character, Long> actual = cachedCharCounter.countChars("     ");
 
-		assertEquals(actual, expected);
+		assertEquals(expected, actual);
 	}
 
 }

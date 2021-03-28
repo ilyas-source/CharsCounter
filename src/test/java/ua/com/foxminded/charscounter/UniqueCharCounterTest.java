@@ -23,7 +23,7 @@ class UniqueCharCounterTest {
 
 		Map<Character, Long> actual = uniqueCharCounter.countChars("Qwertty");
 
-		assertEquals(actual, expected);
+		assertEquals(expected, actual);
 	}
 
 	@Test
@@ -33,7 +33,7 @@ class UniqueCharCounterTest {
 
 		Map<Character, Long> actual = uniqueCharCounter.countChars("M");
 
-		assertEquals(actual, expected);
+		assertEquals(expected, actual);
 	}
 
 	@Test
@@ -43,6 +43,6 @@ class UniqueCharCounterTest {
 
 		Map<Character, Long> actual = uniqueCharCounter.countChars("     ");
 
-		assertEquals(actual, expected);
+		assertEquals(expected, actual);
 	}
 }
