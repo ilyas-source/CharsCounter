@@ -29,9 +29,9 @@ class UniqueCharCounterTest {
 	@Test
 	void givenMMMMMMM_onUniqueCharCount_thenGetHashMap() {
 		Map<Character, Long> expected = new HashMap<>();
-		expected.put('M', 1L);
+		expected.put('M', 7L);
 
-		Map<Character, Long> actual = uniqueCharCounter.countChars("M");
+		Map<Character, Long> actual = uniqueCharCounter.countChars("MMMMMMM");
 
 		assertEquals(expected, actual);
 	}
@@ -62,7 +62,6 @@ class UniqueCharCounterTest {
 		Map<Character, Long> expected = new HashMap<>();
 
 		Map<Character, Long> actual = uniqueCharCounter.countChars("");
-		System.out.println(actual);
 
 		assertEquals(expected, actual);
 	}
