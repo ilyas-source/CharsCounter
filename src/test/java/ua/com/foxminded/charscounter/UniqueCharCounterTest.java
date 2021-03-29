@@ -45,4 +45,25 @@ class UniqueCharCounterTest {
 
 		assertEquals(expected, actual);
 	}
+
+	@Test
+	void givenWWWwww_onUniqueCharCount_thenGetHashMap() {
+		Map<Character, Long> expected = new HashMap<>();
+		expected.put('W', 3L);
+		expected.put('w', 3L);
+
+		Map<Character, Long> actual = uniqueCharCounter.countChars("WWWwww");
+
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	void givenEmptyString_onUniqueCharCount_thenGetEmptyHashMap() {
+		Map<Character, Long> expected = new HashMap<>();
+
+		Map<Character, Long> actual = uniqueCharCounter.countChars("");
+		System.out.println(actual);
+
+		assertEquals(expected, actual);
+	}
 }

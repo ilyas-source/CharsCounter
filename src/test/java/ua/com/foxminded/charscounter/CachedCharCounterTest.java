@@ -6,10 +6,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class CachedCharCounterTest {
 
 	CachedCharCounter cachedCharCounter = new CachedCharCounter(new UniqueCharCounter());
+	// CachedCharCounter cachedCharCounter = new
+	// CachedCharCounter(Mockito.mock(UniqueCharCounter.class));
 
 	@Test
 	void givenQwertty_onCachedCharCount_thenGetHashMap() {
