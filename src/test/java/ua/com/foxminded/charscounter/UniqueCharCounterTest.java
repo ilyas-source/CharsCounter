@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class UniqueCharCounterTest {
 
-	UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
+	private UniqueCharCounter uniqueCharCounter = new UniqueCharCounter();
 
 	@Test
 	void givenQwertty_onUniqueCharCount_thenGetHashMap() {
