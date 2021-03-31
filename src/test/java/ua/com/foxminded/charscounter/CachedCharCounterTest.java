@@ -6,38 +6,34 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class CachedCharCounterTest {
 
 	@Mock
-	CharCounter charCounter;
+	private CharCounter charCounter;
 
 	@InjectMocks
-	CachedCharCounter cachedCharCounter = new CachedCharCounter(charCounter);
+	CachedCharCounter cachedCharCounter;
 
 	@Test
 	void givenQwerttyTwice_onCachedCharCounter_thenCharCounterCalledOnce() {
 		cachedCharCounter.countChars("Qwertty");
 		cachedCharCounter.countChars("Qwertty");
 
-		verify(charCounter, times(1)).countChars("Qwertty");
+		verify(charCounter).countChars("Qwertty");
 	}
 
 	@Test
-	void givenEmptyStringTwice_onCachedCharCounter_thenCharCounterCalledOnce() {
-		cachedCharCounter.countChars("");
-		cachedCharCounter.countChars("");
-
-		verify(charCounter, times(1)).countChars("");
+	void givenQwertty_onCachedCharCounter_thenCharCounterOutputNotModified() {
+		assertEquals(charCounter.countChars("Qwertty"), cachedCharCounter.countChars("Qwertty"));
 	}
 
 	@Test
-	void givenWWWwwwTwice_onCachedCharCounter_thenCharCounterCalledOnce() {
-		cachedCharCounter.countChars("WWWwww");
-		cachedCharCounter.countChars("WWWwww");
-
-		verify(charCounter, times(1)).countChars("WWWwww");
+	void givenQwerttyTwice_onCachedCharCounter_thenCharCounterOutputNotModified() {
+		cachedCharCounter.countChars("Qwertty");
+		assertEquals(charCounter.countChars("Qwertty"), cachedCharCounter.countChars("Qwertty"));
 	}
 }
