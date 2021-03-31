@@ -13,6 +13,7 @@ public class CachedCharCounter extends CharCounterDecorator {
 
 	@Override
 	public Map<Character, Long> countChars(String input) {
-		return cache.merge(input, super.countChars(input), (a, b) -> b);
+		cache.computeIfAbsent(input, k -> super.countChars(input));
+		return cache.get(input);
 	}
 }
