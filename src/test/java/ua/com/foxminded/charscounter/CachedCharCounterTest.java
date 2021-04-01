@@ -9,6 +9,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @ExtendWith(MockitoExtension.class)
 class CachedCharCounterTest {
 
@@ -20,20 +23,26 @@ class CachedCharCounterTest {
 
 	@Test
 	void givenQwerttyTwice_onCachedCharCounter_thenCharCounterCalledOnce() {
-		cachedCharCounter.countChars("Qwertty");
-		cachedCharCounter.countChars("Qwertty");
-
-		verify(charCounter).countChars("Qwertty");
+		String testString = "Qwerrty";
+		cachedCharCounter.countChars(testString);
+		cachedCharCounter.countChars(testString);
+		verify(charCounter).countChars(testString);
 	}
 
 	@Test
-	void givenQwertty_onCachedCharCounter_thenCharCounterOutputNotModified() {
-		assertEquals(charCounter.countChars("Qwertty"), cachedCharCounter.countChars("Qwertty"));
-	}
+	void givenQwertty_onCachedCharCounter_thenOutputNotModified() {
+		Map<Character, Long> testMap = new HashMap<>();
+		String testString = "Qwerrty";
+		testMap.put('Q', 1L);
+		testMap.put('w', 1L);
+		testMap.put('e', 1L);
+		testMap.put('r', 1L);
+		testMap.put('t', 2L);
+		testMap.put('y', 1L);
+		when(charCounter.countChars(testString)).thenReturn(testMap);
 
-	@Test
-	void givenQwerttyTwice_onCachedCharCounter_thenCharCounterOutputNotModified() {
-		cachedCharCounter.countChars("Qwertty");
-		assertEquals(charCounter.countChars("Qwertty"), cachedCharCounter.countChars("Qwertty"));
+		Map<Character, Long> expected = charCounter.countChars(testString);
+		Map<Character, Long> actual = cachedCharCounter.countChars(testString);
+		assertEquals(expected, actual);
 	}
 }
