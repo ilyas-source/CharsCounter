@@ -13,7 +13,7 @@ E.g.
 
 ## Problem:
 
-Main purpose of this task is to get my hands on the Collections Framework. By providing useful data structures and algorithms, it frees you to concentrate on the important parts of your program rather than on the low-level "plumbing", provides high-performance, high-quality implementations of useful data structures and algorithms. 
+Main purpose of this task is to get my hands on the Collections Framework. By providing useful data structures and algorithms, it frees you to concentrate on the important parts of your program rather than on the low-level "plumbing", provides high-performance, high-quality implementations of data structures.
 Project is written in clean-code style and is fully unit-tested.
 
 ## Technologies used:
